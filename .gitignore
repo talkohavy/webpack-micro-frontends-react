@@ -4,5 +4,6 @@
 **/_ignore_
 
 # I added these:
+dist/
 .turbo
 jsconfig.tsbuildinfo
