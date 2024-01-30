@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json.schemastore.org/nodemon.json",
+  "watch": ["./src/**", "./public/index.html", "./node_modules/@mme/**/dist/**"],
+  "ignoreRoot": [],
+  "ext": "ts,js",
+  "exec": "dev-webpack"
+}
