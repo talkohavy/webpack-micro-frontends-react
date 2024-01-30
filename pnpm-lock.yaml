@@ -148,9 +148,6 @@ importers:
       html-webpack-plugin:
         specifier: ^5.6.0
         version: 5.6.0(webpack@5.90.0)
-      nodemon:
-        specifier: ^3.0.3
-        version: 3.0.3
       webpack:
         specifier: ^5.90.0
         version: 5.90.0(webpack-cli@5.1.4)
@@ -160,6 +157,10 @@ importers:
       webpack-dev-server:
         specifier: ^4.15.1
         version: 4.15.1(webpack-cli@5.1.4)(webpack@5.90.0)
+    devDependencies:
+      nodemon:
+        specifier: ^3.0.3
+        version: 3.0.3
 
 packages:
 
@@ -3934,6 +3935,7 @@ packages:
       supports-color: 5.5.0
       touch: 3.1.0
       undefsafe: 2.0.5
+    dev: true
 
   /nopt@1.0.10:
     resolution: {integrity: sha512-NWmpvLSqUrgrAC9HCuxEvb+PSloHpqVu+FqcO4eeF2h5qYRhA7ev6KvelyQAKtegUbC6RypJnlEOhd8vloNKYg==}

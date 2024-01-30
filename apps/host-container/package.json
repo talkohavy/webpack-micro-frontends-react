@@ -7,16 +7,19 @@
   "scripts": {
     "build": "webpack --config webpack.config.js",
     "test": "node --test",
-    "dev": "webpack serve --config webpack.config.js "
+    "dev": "nodemon",
+    "dev-webpack": "webpack serve --config webpack.config.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "html-webpack-plugin": "^5.6.0",
-    "nodemon": "^3.0.3",
     "webpack": "^5.90.0",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
   }
 }
