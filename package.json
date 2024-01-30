@@ -6,8 +6,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev-front": "cd apps/frontend && pnpm run dev",
-    "dev-back": "cd apps/backend && pnpm run dev",
+    "dev-host": "cd apps/host-container && pnpm run dev",
+    "dev-app-01": "cd apps/app-01 && pnpm run dev",
     "turbo-typecheck": "turbo run typecheck",
     "turbo-lint": "turbo run lint",
     "turbo-format": "turbo run format",
