@@ -3,5 +3,5 @@
   "watch": ["./src/**", "./public/index.html"],
   "ignoreRoot": [],
   "ext": "ts,js",
-  "exec": "dev-webpack"
+  "exec": "pnpm run dev-webpack"
 }
