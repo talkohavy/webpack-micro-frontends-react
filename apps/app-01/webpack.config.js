@@ -1,4 +1,5 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import ModuleFederationPlugin from 'webpack/lib/container/ModuleFederationPlugin.js';
 
 /** @type {import('webpack').Configuration} */
 const webpackConfig = {
@@ -6,7 +7,9 @@ const webpackConfig = {
   // Section 1: Basic properties
   // ---------------------------
   mode: 'development',
-  entry: './src/index.js',
+  entry: {
+    list: './src/index.js',
+  },
 
   // ---------------------
   // Section 2: dev server
@@ -21,6 +24,13 @@ const webpackConfig = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './public/index.html',
+    }),
+    new ModuleFederationPlugin({
+      name: 'remote_app_01',
+      filename: 'list1.js',
+      exposes: {
+        './list2': './src/index.js',
+      },
     }),
   ],
 };

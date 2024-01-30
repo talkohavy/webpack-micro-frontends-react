@@ -1,6 +1,9 @@
 {
   "$schema": "https://json.schemastore.org/nodemon.json",
-  "watch": ["./src/**", "./public/index.html"],
+  "verbose": true,
+  "delay": 30,
+  "ignore": [".git", "node_modules", "**/node_modules"],
+  "watch": ["./src/**", "./public/index.html", "./webpack.config.js"],
   "ignoreRoot": [],
   "ext": "ts,js",
   "exec": "pnpm run dev-webpack"
