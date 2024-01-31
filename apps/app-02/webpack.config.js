@@ -8,14 +8,14 @@ const webpackConfig = {
   // ---------------------------
   mode: 'development',
   entry: {
-    list: './src/index.js',
+    details: './src/index.js',
   },
 
   // ---------------------
   // Section 2: dev server
   // ---------------------
   devServer: {
-    port: 8001,
+    port: 8002,
   },
 
   // ------------------
@@ -26,10 +26,10 @@ const webpackConfig = {
       template: './public/index.html',
     }),
     new ModuleFederationPlugin({
-      name: 'remote_app_01',
-      filename: 'sb1_md1.js',
+      name: 'remote_app_02',
+      filename: 'sb2_md1.js',
       exposes: {
-        './sub1-module1': './src/index.js',
+        './sub2-module1': './src/index.js',
       },
     }),
   ],

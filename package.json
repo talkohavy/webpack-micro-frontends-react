@@ -8,6 +8,7 @@
   "scripts": {
     "dev-host": "cd apps/host-container && pnpm run dev",
     "dev-app-01": "cd apps/app-01 && pnpm run dev",
+    "dev-app-02": "cd apps/app-02 && pnpm run dev",
     "turbo-typecheck": "turbo run typecheck",
     "turbo-lint": "turbo run lint",
     "turbo-format": "turbo run format",

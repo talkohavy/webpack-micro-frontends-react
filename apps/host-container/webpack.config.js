@@ -28,7 +28,8 @@ const webpackConfig = {
     new ModuleFederationPlugin({
       name: 'container',
       remotes: {
-        'app-01': 'remote_app_01@http://localhost:8001/list1.js',
+        'app-01': 'remote_app_01@http://localhost:8001/sb1_md1.js',
+        'app-02': 'remote_app_02@http://localhost:8002/sb2_md1.js',
       },
     }),
   ],
