@@ -31,6 +31,7 @@ const webpackConfig = {
       exposes: {
         './sub2-module1': './src/index.js',
       },
+      shared: ['lodash', 'axios', '@luckylove/lodash'],
     }),
   ],
 };
