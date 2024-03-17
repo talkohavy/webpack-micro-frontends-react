@@ -1,6 +1,7 @@
-/* eslint-disable import/extensions */
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import ModuleFederationPlugin from 'webpack/lib/container/ModuleFederationPlugin.js';
+import webpack from 'webpack';
+
+const { ModuleFederationPlugin } = webpack.container;
 
 /** @type {import('webpack').Configuration} */
 const webpackConfig = {
