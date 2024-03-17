@@ -6,22 +6,15 @@ const programs = [
     isEncoded: true,
     config: {
       name: 'host',
-      command: 'cd apps/host-react && pnpm run dev',
+      command: 'cd apps/host && pnpm run dev',
       autoFocus: true,
     },
   },
   {
     isEncoded: true,
     config: {
-      name: 'app-01',
-      command: 'cd apps/app-01 && pnpm run dev',
-    },
-  },
-  {
-    isEncoded: true,
-    config: {
-      name: 'app-02',
-      command: 'cd apps/app-02 && pnpm run dev',
+      name: 'mf-home',
+      command: 'cd apps/mf-home && pnpm run dev',
     },
   },
 ];
