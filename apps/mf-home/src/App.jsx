@@ -1,5 +1,3 @@
-import React, { Suspense } from 'react';
-
 export default function App() {
   return (
     <div
@@ -11,7 +9,7 @@ export default function App() {
         color: '#f15b2a',
       }}
     >
-      <Suspense>Child: React</Suspense>
+      Child: React
     </div>
   );
 }

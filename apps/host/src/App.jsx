@@ -1,6 +1,6 @@
 import React, { Suspense, lazy } from 'react';
 
-const Remote = lazy(() => import('./pages/Remote.jsx'));
+const Remote = lazy(() => import('./pages/Remote'));
 
 export default function App() {
   return (

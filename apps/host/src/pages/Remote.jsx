@@ -1,5 +1,4 @@
-import React from 'react';
-import Component from 'child-react/sub1-module1';
+import Component from 'mf_home/Home';
 
 export default function Remote() {
   return (

@@ -1,10 +1,17 @@
 {
-  "name": "@root-app/host-react",
+  "name": "mf-home",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "clean": "rm -rf node_modules",
+    "lint": "eslint -c .eslintrc.cjs '**/*/*.{js,jsx,tsx,ts,d.ts,cjs,mjs}'",
+    "lint-fix": "eslint --fix -c .eslintrc.cjs '**/*/*.{js,jsx,tsx,ts,d.ts,cjs,mjs}'",
+    "lint-biome": "biome lint ./src",
+    "format": "biome format --verbose ./src",
+    "format-prettier": "prettier '**/*.json' --check --config ../../.prettierrc.mjs --ignore-path ../../.prettierignore",
+    "format-fix-prettier": "prettier '**/*.json' --write --config ../../.prettierrc.mjs --ignore-path ../../.prettierignore",
     "build": "webpack --config webpack.config.js",
     "test": "node --test",
     "dev": "nodemon",

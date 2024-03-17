@@ -1,3 +1,4 @@
+/* eslint-disable import/extensions */
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ModuleFederationPlugin from 'webpack/lib/container/ModuleFederationPlugin.js';
 
@@ -8,14 +9,14 @@ const webpackConfig = {
   // ---------------------------
   mode: 'development',
   entry: {
-    container: './src/index.js',
+    container: './src/main.jsx',
   },
 
   // ---------------------
   // Section 2: dev server
   // ---------------------
   devServer: {
-    port: 8000,
+    port: 3000,
   },
 
   // ------------------
@@ -28,33 +29,52 @@ const webpackConfig = {
     new ModuleFederationPlugin({
       name: 'container',
       remotes: {
-        'child-react': 'mf_react1@http://localhost:8001/sb1_md1.js',
-        // 'app-01': 'remote_app_01@http://localhost:8001/sb1_md1.js',
-        // 'app-02': 'remote_app_02@http://localhost:8002/sb2_md1.js',
+        mf_home: 'mf_home@http://localhost:3001/remoteEntry.js',
+      },
+      // shared: ['react', 'react-dom'],
+      shared: {
+        'react-router-dom': {
+          singleton: true,
+        },
+        'react-dom': {
+          singleton: true,
+        },
+        react: {
+          singleton: true,
+          eager: true,
+        },
       },
     }),
   ],
 
+  // ----------------------------------------------------------
+  // Section 4: help webpack resolve imports without extensions
+  // ----------------------------------------------------------
+  resolve: {
+    extensions: ['.js', '.jsx', '.mjs'],
+  },
+
   // -----------------------
-  // Section 4: module rules
+  // Section 5: module rules
   // -----------------------
   module: {
     rules: [
       {
-        test: /\.m?jsx?$/i,
+        test: /\.(js|jsx|mjs)$/i,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
-          options: { presets: ['@babel/preset-env', '@babel/preset-react'] },
+          // - The following line is what caused the error of "Uncaught ReferenceError: React is not defined".
+          // options: { presets: ['@babel/preset-env', '@babel/preset-react'] },
+          // - And this is what solved it! Adding runtime: 'automatic'
+          options: {
+            presets: ['@babel/preset-env', ['@babel/preset-react', { runtime: 'automatic' }]],
+          },
         },
       },
       {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
-      },
-      {
-        test: /\.vue$/i,
-        use: 'vue-loader',
       },
     ],
   },
