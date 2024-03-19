@@ -63,6 +63,9 @@ const webpackConfig = {
       {
         test: /\.(js|jsx|mjs)$/i,
         exclude: /node_modules/,
+        resolve: {
+          fullySpecified: false, // <--- important! otherwise you'll have to add extensions, as well as '/index.js'.
+        },
         use: {
           loader: 'babel-loader',
           // - The following line is what caused the error of "Uncaught ReferenceError: React is not defined".
@@ -75,7 +78,25 @@ const webpackConfig = {
       },
       {
         test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
+        use: [
+          'style-loader',
+          'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: [
+                  [
+                    'postcss-preset-env',
+                    {
+                      // Options
+                    },
+                  ],
+                ],
+              },
+            },
+          },
+        ],
       },
     ],
   },
