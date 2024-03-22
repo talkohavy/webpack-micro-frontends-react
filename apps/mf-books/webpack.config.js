@@ -10,14 +10,14 @@ const webpackConfig = {
   // ---------------------------
   mode: 'development',
   entry: {
-    container: './src/main.jsx',
+    container: './src/index.js',
   },
 
   // ---------------------
   // Section 2: dev server
   // ---------------------
   devServer: {
-    port: 3000,
+    port: 3002,
   },
 
   // ------------------
@@ -28,10 +28,10 @@ const webpackConfig = {
       template: './public/index.html',
     }),
     new ModuleFederationPlugin({
-      name: 'container',
-      remotes: {
-        mf_home: 'mf_home@http://localhost:3001/remoteEntry.js',
-        mf_books: 'mf_books@http://localhost:3002/remoteEntry.js',
+      name: 'mf_books',
+      filename: 'remoteEntry.js',
+      exposes: {
+        './App': './src/App.jsx',
       },
       // shared: ['react', 'react-dom'],
       shared: {
@@ -64,9 +64,6 @@ const webpackConfig = {
       {
         test: /\.(js|jsx|mjs)$/i,
         exclude: /node_modules/,
-        resolve: {
-          fullySpecified: false, // <--- important! otherwise you'll have to add extensions, as well as '/index.js'.
-        },
         use: {
           loader: 'babel-loader',
           // - The following line is what caused the error of "Uncaught ReferenceError: React is not defined".
@@ -79,32 +76,7 @@ const webpackConfig = {
       },
       {
         test: /\.css$/i,
-        use: [
-          'style-loader',
-          'css-loader', // <--- this works! modules:true not so much.
-          // {
-          //   loader: 'css-loader',
-          //   options: {
-          //     modules: true, // <--- from css modules!
-          //     importLoaders: 1,
-          //   },
-          // },
-          {
-            loader: 'postcss-loader',
-            options: {
-              postcssOptions: {
-                plugins: [
-                  [
-                    'postcss-preset-env',
-                    {
-                      // Options
-                    },
-                  ],
-                ],
-              },
-            },
-          },
-        ],
+        use: ['style-loader', 'css-loader'],
       },
     ],
   },

@@ -17,17 +17,23 @@ const programs = [
       command: 'cd apps/mf-home && pnpm run dev',
     },
   },
+  {
+    isEncoded: true,
+    config: {
+      name: 'mf-books',
+      command: 'cd apps/mf-books && pnpm run dev',
+    },
+  },
 ];
 
 async function runProgramInDebug() {
   for (const program of programs) {
-    const { config, isDebugMode, ...rest } = program;
+    if (program.isDebugMode) {
+      // @ts-ignore
+      program.config.color = 'blue';
+    }
 
-    await openTerminal({
-      config: isDebugMode ? config : { ...config, color: 'blue' },
-      isDebugMode,
-      ...rest,
-    });
+    await openTerminal(program);
   }
 }
 
