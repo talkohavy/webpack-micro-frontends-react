@@ -24,12 +24,18 @@ const programs = [
       command: 'cd apps/mf-books && pnpm run dev',
     },
   },
+  {
+    isEncoded: true,
+    config: {
+      name: 'mf-charts',
+      command: 'cd apps/mf-charts && pnpm run dev',
+    },
+  },
 ];
 
 async function runProgramInDebug() {
   for (const program of programs) {
-    if (program.isDebugMode) {
-      // @ts-ignore
+    if ('command' in program.config) {
       program.config.color = 'blue';
     }
 
