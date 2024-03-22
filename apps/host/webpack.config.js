@@ -80,7 +80,14 @@ const webpackConfig = {
         test: /\.css$/i,
         use: [
           'style-loader',
-          'css-loader',
+          'css-loader', // <--- this works! modules:true not so much.
+          // {
+          //   loader: 'css-loader',
+          //   options: {
+          //     modules: true, // <--- from css modules!
+          //     importLoaders: 1,
+          //   },
+          // },
           {
             loader: 'postcss-loader',
             options: {

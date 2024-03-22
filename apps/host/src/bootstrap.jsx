@@ -26,5 +26,7 @@ function Client() {
   );
 }
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+/** @type {any} */
+const rootElement = document.getElementById('root');
+const root = ReactDOM.createRoot(rootElement);
 root.render(<Client />);
