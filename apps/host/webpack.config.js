@@ -18,6 +18,7 @@ const webpackConfig = {
   // ---------------------
   devServer: {
     port: 3000,
+    historyApiFallback: true, // <--- this is important for page refreshes when on routes different than '/'.
   },
 
   // ------------------
@@ -108,6 +109,14 @@ const webpackConfig = {
       },
     ],
   },
+
+  // -----------------
+  // Section 6: output
+  // -----------------
+  // output: {
+  //   path: path.resolve(__dirname, 'dist'),
+  //   publicPath: '/',
+  // },
 };
 
 export default webpackConfig;
