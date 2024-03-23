@@ -24,6 +24,7 @@
     "@babel/core": "^7.23.9",
     "@babel/preset-env": "^7.23.9",
     "@babel/preset-react": "^7.23.3",
+    "@module-federation/runtime": "^0.0.17",
     "@reduxjs/toolkit": "^2.2.1",
     "@talkohavy/lodash": "^1.0.51",
     "babel-loader": "^9.1.3",

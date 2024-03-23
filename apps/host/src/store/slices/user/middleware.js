@@ -4,8 +4,7 @@ import { login, prefix, setIsLoggedIn } from './actions';
 
 export const userMiddleware = createMiddleware({
   uniquePrefix: prefix,
-  // eslint-disable-next-line
-  handleActionLogic: ({ action, dispatch, getState }) => {
+  handleActionLogic: ({ action, dispatch }) => {
     if (login.match(action)) {
       localStorage.setItem('isLogged', JSON.stringify(true));
 

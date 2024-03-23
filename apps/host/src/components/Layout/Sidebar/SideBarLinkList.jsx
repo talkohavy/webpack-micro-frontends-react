@@ -13,7 +13,11 @@ const routesRaw = [
   },
   {
     to: '/about',
-    text: 'About',
+    text: 'Error Boundary',
+  },
+  {
+    to: '/dynamic',
+    text: 'Dynamic Import',
   },
 ];
 

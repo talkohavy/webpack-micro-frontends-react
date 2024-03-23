@@ -10,6 +10,7 @@ import Redirect from './components/Redirect';
 const Login = lazy(() => import('./pages/unauthorized/Login'));
 const HomePage = lazy(() => import('./pages/authorized/Home'));
 const BooksPage = lazy(() => import('./pages/authorized/Books'));
+const DynamicPage = lazy(() => import('./pages/authorized/DynamicRemoteImport'));
 const PageNotFound = lazy(() => import('./pages/unauthorized/PageNotFound'));
 
 export default function App() {
@@ -27,6 +28,7 @@ export default function App() {
               <Route path='/index.html' element={<HomePage />} />
               <Route path='/' element={<HomePage />} />
               <Route path='/books' element={<BooksPage />} />
+              <Route path='/dynamic' element={<DynamicPage />} />
               {/* <Route path='/list/:id' element={<SinlgeItemPage />} /> */}
 
               <Route path='*' element={<PageNotFound />} />

@@ -3,6 +3,7 @@ const isDevelopment = !process.cwd().includes('apps/host');
 module.exports = {
   extends: ['plugin:ezlint/react'],
   rules: {
+    'react/hook-use-state': 'off',
     'import/no-unresolved': ['error', { ignore: ['^mf_'] }],
     'tailwindcss/no-custom-classname': 'off',
     'tailwindcss/classnames-order': isDevelopment

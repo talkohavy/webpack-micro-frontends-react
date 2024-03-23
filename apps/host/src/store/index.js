@@ -3,17 +3,21 @@ import { createReduxHistoryContext } from 'redux-first-history';
 import { configureStore } from '@reduxjs/toolkit';
 import { userMiddleware, userReducer } from './slices/user';
 
+/** @typedef {import('./types').State} State */
+
 function getAllMiddlewares() {
   return [userMiddleware];
 }
 
 /**
  * @param {{
- *   preloadedState?: any,
+ *   preloadedState?: Partial<State>,
  *   axiosInstance?: any
- * }} _props
+ * }} props
  */
-export function configureMyStore({ preloadedState = {} }) {
+export function configureMyStore(props) {
+  const { preloadedState = {} } = props ?? {};
+
   const { createReduxHistory, routerMiddleware, routerReducer } = createReduxHistoryContext({
     history: createBrowserHistory(),
   });

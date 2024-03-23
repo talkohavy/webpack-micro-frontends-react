@@ -110,8 +110,13 @@ const webpackConfig = {
     ],
   },
 
+  // ---------------------
+  // Section 6: sourcemaps
+  // ---------------------
+  devtool: 'eval-cheap-module-source-map', // <--- important! Watch original lines on browser
+
   // -----------------
-  // Section 6: output
+  // Section 7: output
   // -----------------
   // output: {
   //   path: path.resolve(__dirname, 'dist'),
